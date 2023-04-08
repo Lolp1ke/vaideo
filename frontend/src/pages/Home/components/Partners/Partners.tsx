@@ -26,11 +26,18 @@ const partners: partnersProps[] = [
 		rate: 5,
 	},
 	{
-		text: "“Computer vision integrated with AI can fix problems in our country. Although, reduce time for policeman and ambulance to get to danger point”",
-		name: "Astana Hub",
-		description: "Technopark",
-		image: "astana-hub.png",
-		rate: 4.6,
+		text: "“Computer vision can identify and locate objects in images or videos, making it useful in various applications such as surveillance and self-driving cars.”",
+		name: "Sergek",
+		description: "Video registrator company",
+		image: "sergek.png",
+		rate: 4.5,
+	},
+	{
+		text: "“Computer vision can extract valuable insights from visual data, enabling businesses to make informed decisions and optimize their operations.”",
+		name: "Kolesa Group",
+		description: "IT Company",
+		image: "kolesaGroup.png",
+		rate: 4.8,
 	},
 ];
 
