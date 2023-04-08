@@ -1,0 +1,55 @@
+@import "./src/assets/styles/mixins";
+
+.goals {
+	// .goals__container
+	&__container {
+		@include flex(column, normal, flex-start, 40px);
+	}
+	// .goals__info
+	&__info {
+		@include flex(column, normal, flex-start, 10px);
+	}
+
+	// .goals__desc
+	&__desc {
+	}
+
+	// .goals__title
+	&__title {
+	}
+
+	// .goals__content
+	&__content {
+		@include flex(row, space-evenly, center, 40px);
+		flex-wrap: wrap;
+	}
+
+	// .goals__card
+	&__card {
+		position: relative;
+		background-color: #ffffff;
+		@include flex(column, normal, center, 20px);
+		padding: 40px 20px;
+		border-radius: 10px;
+		width: 280px;
+		height: 130px;
+	}
+
+	// .goals__icon
+	&__icon {
+		position: absolute;
+		background-color: #883cda;
+		border-radius: 50%;
+		padding: 20px;
+		width: 72px;
+		aspect-ratio: 1 / 1;
+		top: -50%;
+		transform: translateY(50%);
+	}
+
+	// .goals__text
+	&__text {
+		text-align: center;
+		margin-top: auto;
+	}
+}

@@ -4,15 +4,16 @@ interface SlideProps {
 	text: string;
 	name: string;
 	description: string;
+	image: string;
 	rate: number;
 	stars: JSX.Element[];
 }
 
-export default function Slide({ text, name, description, rate, stars }: SlideProps) {
+export default function Slide({ text, name, description, image, rate, stars }: SlideProps) {
 	return (
 		<div className="partners__slide">
 			<div className="partners__slide-image">
-				<img src="/assets/images/astana-hub.png" alt="astana-hub" />
+				<img src={"/assets/partners/" + image} alt="astana-hub" />
 			</div>
 			<div className="partners__says">
 				<p className="partners__text text">{text}</p>

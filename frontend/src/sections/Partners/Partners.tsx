@@ -13,6 +13,7 @@ interface partnersProps {
 	text: string;
 	name: string;
 	description: string;
+	image: string;
 	rate: number;
 }
 
@@ -21,12 +22,14 @@ const partners: partnersProps[] = [
 		text: "“Computer vision integrated with AI can fix problems in our country. Although, reduce time for policeman and ambulance to get to danger point”",
 		name: "Astana Hub",
 		description: "Technopark",
+		image: "astana-hub.png",
 		rate: 5,
 	},
 	{
 		text: "“Computer vision integrated with AI can fix problems in our country. Although, reduce time for policeman and ambulance to get to danger point”",
 		name: "Astana Hub",
 		description: "Technopark",
+		image: "astana-hub.png",
 		rate: 4.6,
 	},
 ];
@@ -61,6 +64,7 @@ export default function Partners() {
 										name={partner.name}
 										text={partner.text}
 										description={partner.description}
+										image={partner.image}
 										rate={partner.rate}
 										stars={stars}
 									/>

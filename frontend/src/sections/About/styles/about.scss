@@ -1,34 +1,81 @@
 @import "./src/assets/styles/mixins";
 
-.about{
+//.about {
+//	&__container {
+//		position: relative;
+//		@include flex(row, normal, normal, 20px);
+//	}
+//
+//	&__content {
+//		@include flex(column, space-between, normal, 20px);
+//
+//		@media (max-width: 1300px) {
+//			flex-direction: column;
+//			align-items: center;
+//		}
+//	}
+//
+//	&__info {
+//		@include flex(column, normal, flex-start, 5px);
+//	}
+//
+//	&__text {
+//		font-weight: 700;
+//		color: var(--main-color);
+//		font-size: 18px;
+//	}
+//
+//	&__left {
+//		width: 40%;
+//	}
+// }
 
-    &__container {
-        position: relative;
-        @include flex(row, normal, normal, 20px);
-    }
+.about {
+	// .about__container
+	&__container {
+		@include flex(row, normal, center, 20px);
+		@media (max-width: 750px) {
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
 
-    &__content {
-      @include flex(column, space-between, normal, 20px);
-  
-      @media (max-width: 1300px) {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+	// .about__info
+	&__info {
+		align-self: flex-start;
+	}
 
-    &__info {
-		@include flex(column, normal, flex-start, 5px);
-	  }   
+	// .about__desc
+	&__desc {
+	}
 
-    &__text{
-      font-weight: 700;
-	    color: var(--main-color);
-	    font-size: 18px;
-    }
+	// .about__title
+	&__title {
+	}
 
-    &__left{
-      width: 40%;
-    }
+	// .about__content
+	&__content {
+		@include flex(column, space-between, flex-start, 20px);
+		width: 100%;
+		@media (max-width: 750px) {
+			align-items: center;
+		}
+	}
 
-   
+	// .about__article
+	&__article {
+	}
+
+	// .about__text
+	&__text {
+		max-width: 400px;
+	}
+
+	// .about__logo
+	&__logo {
+	}
+
+	// .about__illustration
+	&__illustration {
+	}
 }
