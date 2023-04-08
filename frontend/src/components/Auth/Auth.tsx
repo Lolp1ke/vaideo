@@ -53,6 +53,7 @@ export default function Auth({ isLogin, setIsLogin, isVisible, setIsVisible }: A
 
 		setIsVisible(false);
 		setIsLoading(false);
+		document.documentElement.style.overflow = "auto";
 	}
 
 	return (

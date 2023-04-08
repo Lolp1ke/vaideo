@@ -8,8 +8,9 @@
 }
 
 .page {
-	display: flex;
+	@include flex(column, normal, normal, 20px);
 	flex: 1;
+	width: 100%;
 }
 
 .title {
