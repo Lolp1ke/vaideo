@@ -1,12 +1,12 @@
 import React from "react";
 
 import Header from "../../components/Header/Header";
-import Hero from "../../sections/Hero/Hero";
-import About from "../../sections/About/About";
-import Goals from "../../sections/Goals/Goals";
+import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
+import Features from "./components/Features/Features";
+import Partners from "./components//Partners/Partners";
+import Goals from "./components/Goals/Goals";
 import Footer from "../../components/Footer/Footer";
-import Features from "../../sections/Features/Features";
-import Partners from "../../sections/Partners/Partners";
 
 export default function Home() {
 	return (
