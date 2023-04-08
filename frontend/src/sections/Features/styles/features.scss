@@ -1,0 +1,111 @@
+@import "./src/assets/styles/mixins";
+
+.features {
+	// .features__container
+	&__container {
+		position: relative;
+		@include flex(column, normal, normal, 20px);
+	}
+
+	// .features__info
+	&__info {
+		@include flex(column, normal, flex-start, 5px);
+	}
+
+	// .features__desc
+	&__desc {
+	}
+
+	// .features__title
+	&__title {
+		font-size: 20px;
+	}
+
+	// .features__content
+	&__content {
+		@include flex(row, space-between, flex-start, 30px);
+
+		@media (max-width: 1300px) {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	// .features__illustration
+	&__illustration {
+		@include flex(column, normal, center, 10px);
+	}
+
+	// .features__image
+	&__image {
+		width: clamp(18.75rem, 13.028rem + 24.41vw, 35rem);
+	}
+
+	&__info-block {
+		@include flex(row, normal, center, 5px);
+		background-color: #ffffff;
+		padding: 20px;
+		width: fit-content;
+		border-radius: 20px;
+		box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.1);
+	}
+
+	// .features__info-image
+	&__info-image {
+		background-color: #f87f81;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+	// .features__article
+	&__article {
+		@include flex(column, normal, flex-start, 5px);
+	}
+
+	// .features__text
+	&__text {
+	}
+
+	// .features__blocks
+	&__blocks {
+		@include flex(row, center, normal, clamp(1.25rem, 0.59rem + 2.82vw, 3.125rem));
+		flex-wrap: wrap;
+	}
+
+	// .features__block
+	&__block {
+		position: relative;
+		@include flex(column, normal, normal, 15px);
+		box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.1);
+		border-radius: 10px;
+		background-color: #ffffff;
+		padding: 20px;
+		width: 250px;
+		transition: all var(--anination-slow) ease;
+
+		&:hover {
+			transform: translate(5%, -10%);
+			background-color: rgba(#000000, 0.1);
+		}
+	}
+	&__number {
+		position: absolute;
+		top: -10%;
+		right: -10%;
+		background-color: rgba(#def5ff, 0.8);
+		color: var(--secondary-color);
+		border-radius: 50%;
+		padding: 10px;
+		width: 42px;
+		height: 42px;
+		@include flex(row, center, center, 0);
+	}
+
+	// .features__block-image
+	&__block-image {
+		width: 42px;
+		background-color: #c4d9e8;
+		padding: 8px;
+		border-radius: 10px;
+	}
+}

@@ -4,7 +4,7 @@
 	min-height: 100vh;
 	width: 100%;
 
-	@include flex(column, normal, flex-start, 10px);
+	@include flex(column, normal, flex-start, 50px);
 }
 
 .page {
@@ -15,10 +15,15 @@
 .title {
 	font-weight: 700;
 	color: var(--main-color);
-	font-size: 32px;
+	font-size: 26px;
 }
 .text {
 	font-weight: 400;
 	color: var(--text-color);
-	font-size: 18px;
+	font-size: 14px;
+}
+.info {
+	font-weight: 600;
+	color: var(--secondary-color);
+	font-size: 16px;
 }

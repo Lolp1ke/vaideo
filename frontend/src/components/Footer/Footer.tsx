@@ -10,7 +10,12 @@ export default function Footer() {
 				<div className="footer__blocks">
 					<div className="footer__block">
 						<a href={"#top"} className="footer__logo">
-							<img src="/assets/logos/logo-car.png" alt="logo" className="footer__logo-image" />
+							<img
+								src="/assets/logos/logo-car.png"
+								alt="logo"
+								className="footer__logo-image"
+								draggable={false}
+							/>
 							<h3 className="footer__title">Traifix</h3>
 						</a>
 						<p className="footer__description">
