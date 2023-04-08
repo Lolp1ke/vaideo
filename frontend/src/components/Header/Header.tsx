@@ -14,7 +14,7 @@ export default function Header() {
 		<header className="header">
 			<div className="header__container">
 				<a href={"#top"} className="header__logo">
-					<img src="/assets/logos/logo.jpg" alt="logo" className="header__logo-image" />
+					<img src="/assets/logos/logo.png" alt="logo" className="header__logo-image" />
 					<h1 className="header__logo-text">Traifix</h1>
 				</a>
 				<nav className="header__navbar">
