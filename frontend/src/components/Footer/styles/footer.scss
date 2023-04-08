@@ -1,3 +1,109 @@
+@import "./src/assets/styles/mixins";
+
 .footer {
-	flex: 0;
+	position: relative;
+	background-color: var(--main-color);
+	width: 100%;
+	padding: 20px;
+
+	// .footer__container
+	&__container {
+		@include flex(column, normal, normal, 20px);
+	}
+
+	// .footer__blocks
+	&__blocks {
+		width: 100%;
+		@include flex(row, space-evenly, flex-start, 20px);
+		flex-wrap: wrap;
+	}
+
+	// .footer__block
+	&__block {
+		@include flex(column, normal, flex-start, 20px);
+	}
+
+	// .footer__logo
+	&__logo {
+		@include flex(row, normal, center, 10px);
+
+		.footer__title {
+			cursor: pointer;
+		}
+	}
+
+	// .footer__logo-image
+	&__logo-image {
+		height: 80px;
+	}
+
+	// .footer__title
+	&__title {
+		font-size: 20px;
+		font-weight: 700;
+		color: #ffffff;
+	}
+
+	// .footer__description
+	&__description {
+		max-width: 280px;
+		color: #ffffff;
+	}
+
+	// .footer__links
+	&__links {
+		@include flex(row, normal, center, 10px);
+	}
+
+	// .footer__links-item
+	&__links-item {
+		color: #ffffff;
+	}
+
+	// .footer__list
+	&__list {
+		@include flex(column, normal, flex-start, 5px);
+	}
+
+	// .footer__list-item
+	&__list-item {
+		color: #ffffff;
+	}
+
+	// .footer__input
+	&__input {
+		position: relative;
+		@include flex(row, center, center, 0);
+	}
+
+	// .footer__input-field
+	&__input-field {
+		@include reset();
+		background-color: #0e1238;
+		border-radius: 8px;
+		padding: 10px 35px 10px 20px;
+		color: #ffffff;
+	}
+
+	// .footer__input-button
+	&__input-button {
+		position: absolute;
+		right: 5px;
+		@include reset();
+		@include flex(row, center, center, 0);
+	}
+
+	// .footer__text
+	&__text {
+		@include flex(row, normal, center, 5px);
+		color: #ffffff;
+	}
+
+	// .footer__copyright
+	&__copyright {
+		align-self: flex-end;
+		font-size: 14px;
+		font-weight: 500;
+		color: #ffffff;
+	}
 }

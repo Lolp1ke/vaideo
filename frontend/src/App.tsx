@@ -1,21 +1,19 @@
 import React from "react";
 import { FirebaseAuthProvider } from "./context/FirebaseAuthContext";
+import { Route, Routes } from "react-router-dom";
 
 import "./assets/styles/default.scss";
 import "./assets/styles/page.scss";
 
-import Header from "./components/Header/Header";
-import Main from "./sections/Main/Main";
-import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
 
 export default function App() {
 	return (
 		<FirebaseAuthProvider>
-			<Header />
-			<main className="page">
-				<Main />
-			</main>
-			<Footer />
+			<Routes>
+				<Route path={"/"} element={<Home />} />
+				<Route path={"/home"} element={<Home />} />
+			</Routes>
 		</FirebaseAuthProvider>
 	);
 }
