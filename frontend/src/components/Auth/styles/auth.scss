@@ -1,0 +1,67 @@
+@import "./src/assets/styles/mixins";
+
+.auth {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(#000000, 0.3);
+	z-index: 10;
+
+	// .auth__container
+	&__container {
+		position: relative;
+		@include flex(column, normal, center, 10px);
+		background-color: var(--secondary-color);
+		padding: 40px 20px;
+		border-radius: 20px;
+		width: 360px;
+		margin: auto;
+		z-index: 100;
+	}
+
+	// .auth__close
+	&__close {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		@include reset();
+	}
+
+	// .auth__text
+	&__text {
+		font-size: 26px;
+		font-weight: 500;
+	}
+
+	// .auth__form
+	&__form {
+		@include flex(column, normal, normal, 10px);
+		width: 100%;
+	}
+
+	// .auth__input
+	&__input {
+		@include reset();
+		background-color: #ffffff;
+		padding: 5px 15px;
+	}
+
+	// .auth__submit
+	&__submit {
+		@include reset();
+	}
+
+	// .auth__actions
+	&__actions {
+		@include flex(reverse-row, space-between, center, 20px);
+	}
+	// .auth__action
+	&__action {
+		@include reset();
+		align-self: flex-start;
+		font-size: 14px;
+	}
+}

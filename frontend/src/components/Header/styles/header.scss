@@ -1,7 +1,6 @@
 @import "./src/assets/styles/mixins";
 
 .header {
-	position: relative;
 	padding: 20px 0;
 	width: 100%;
 
@@ -46,6 +45,24 @@
 	// .header__auth
 	&__auth {
 		@include flex(row, normal, center, 20px);
+	}
+
+	&__profile {
+		@include flex(row, normal, center, 10px);
+		background-color: #4ac1f7;
+		padding: 5px 5px 5px 20px;
+		border-radius: 30px;
+	}
+	&__profile-info {
+		@include flex(column, normal, flex-end, 10px);
+	}
+	&__profile-signout {
+		@include reset();
+		font-size: 14px;
+		color: var(--main-color);
+	}
+	&__profile-image {
+		border-radius: 15% 30px 30px 15%;
 	}
 
 	// .header__auth-button

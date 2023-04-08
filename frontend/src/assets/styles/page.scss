@@ -2,7 +2,7 @@
 
 #root {
 	min-height: 100vh;
-	width: 100vw;
+	width: 100%;
 
 	@include flex(column, normal, flex-start, 10px);
 }

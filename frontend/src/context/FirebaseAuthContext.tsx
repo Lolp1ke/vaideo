@@ -1,6 +1,5 @@
 import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { firebaseAuth } from "../api/Firebase";
-import { sendEmailVerification, updateProfile } from "firebase/auth";
 import { User, UserCredential } from "@firebase/auth-types";
 
 type currentUserType = User | null;
@@ -11,14 +10,15 @@ interface IEmailAndPass extends emailType {
 }
 
 interface IUpdateUserInfo {
-	displayName: string;
-	photoURL: string;
+	displayName: string | null;
+	photoURL: string | null;
 }
 
 interface FirebaseAuthContextProps {
 	currentUser: currentUserType;
 	signUp: ({ email, password }: IEmailAndPass) => Promise<UserCredential>;
 	signIn: ({ email, password }: IEmailAndPass) => Promise<UserCredential>;
+	signOut: () => Promise<void>;
 	resetPass: ({ email }: emailType) => Promise<void>;
 	confirmEmail: () => Promise<void> | null;
 	updateUserInfo: ({ displayName, photoURL }: IUpdateUserInfo) => Promise<void> | null;
@@ -42,22 +42,26 @@ export function FirebaseAuthProvider({ children }: { children: ReactNode }) {
 		return firebaseAuth.signInWithEmailAndPassword(email, password);
 	}
 
+	function signOut() {
+		return firebaseAuth.signOut();
+	}
+
 	function resetPass({ email }: emailType) {
 		return firebaseAuth.sendPasswordResetEmail(email);
 	}
 
 	function confirmEmail() {
-		if (!currentUser) return null;
+		if (!firebaseAuth.currentUser) return null;
 
-		return sendEmailVerification(currentUser);
+		return firebaseAuth.currentUser.sendEmailVerification();
 	}
 
 	function updateUserInfo({ displayName, photoURL }: IUpdateUserInfo) {
-		if (!currentUser) return null;
+		if (!firebaseAuth.currentUser) return null;
 
-		return updateProfile(currentUser, {
-			displayName: displayName ? displayName : currentUser.displayName,
-			photoURL: photoURL ? photoURL : currentUser.photoURL,
+		return firebaseAuth.currentUser.updateProfile({
+			displayName: displayName ? displayName : firebaseAuth.currentUser.displayName,
+			photoURL: photoURL ? photoURL : firebaseAuth.currentUser.photoURL,
 		});
 	}
 
@@ -68,7 +72,15 @@ export function FirebaseAuthProvider({ children }: { children: ReactNode }) {
 		});
 	}, []);
 
-	const values: FirebaseAuthContextProps = { currentUser, signUp, signIn, resetPass, confirmEmail, updateUserInfo };
+	const values: FirebaseAuthContextProps = {
+		currentUser,
+		signUp,
+		signIn,
+		resetPass,
+		confirmEmail,
+		updateUserInfo,
+		signOut,
+	};
 
 	return <FirebaseAuthContext.Provider value={values}>{!isLoading && children}</FirebaseAuthContext.Provider>;
 }
