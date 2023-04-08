@@ -10,6 +10,7 @@ export default function Features() {
 					<h3 className="features__desc info">Simple steps to glory</h3>
 					<h2 className="features__title title">Our features</h2>
 				</div>
+
 				<div className="features__content">
 					<div className="features__illustration">
 						<img
@@ -31,6 +32,7 @@ export default function Features() {
 							</article>
 						</div>
 					</div>
+					
 					<div className="features__blocks">
 						<div className="features__block">
 							<p className="features__number">01</p>
