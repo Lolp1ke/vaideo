@@ -5,6 +5,7 @@ import Main from "../../sections/Main/Main";
 import About from "../../sections/About/About";
 import Footer from "../../components/Footer/Footer";
 import Features from "../../sections/Features/Features";
+import Partners from "../../sections/Partners/Partners";
 
 export default function Home() {
 	return (
@@ -15,6 +16,7 @@ export default function Home() {
 				<Main />
 				<About />
 				<Features />
+				<Partners />
 			</main>
 			<Footer />
 		</>

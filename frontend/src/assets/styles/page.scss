@@ -8,9 +8,13 @@
 }
 
 .page {
-	display: flex;
+	@include flex(column, normal, normal, 20px);
 	flex: 1;
+<<<<<<< HEAD
 	flex-direction: column;
+=======
+	width: 100%;
+>>>>>>> d4867830dd55ce3da8ef5282282a3b5be05867e3
 }
 
 .title {
