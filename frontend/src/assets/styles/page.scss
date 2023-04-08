@@ -1,0 +1,24 @@
+@import "./src/assets/styles/mixins";
+
+#root {
+	min-height: 100vh;
+	width: 100vw;
+
+	@include flex(column, normal, flex-start, 10px);
+}
+
+.page {
+	display: flex;
+	flex: 1;
+}
+
+.title {
+	font-weight: 700;
+	color: var(--main-color);
+	font-size: 32px;
+}
+.text {
+	font-weight: 400;
+	color: var(--text-color);
+	font-size: 18px;
+}
