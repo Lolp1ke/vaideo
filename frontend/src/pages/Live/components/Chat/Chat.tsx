@@ -38,11 +38,16 @@ export default function Chat({ caseId }: LiveChatProps) {
 		return chatMessages;
 	}
 
+	console.log();
 	async function handleCreateMessage() {
 		if (!currentUser) return;
 		if (!messageRef.current) return;
 
 		setIsLoading(true);
+
+		const time: number = new Date().getTime();
+
+		console.log(time);
 
 		await createChatMessage({
 			caseId: caseId,
@@ -50,10 +55,11 @@ export default function Chat({ caseId }: LiveChatProps) {
 			name: currentUser.displayName!,
 			photoURL: currentUser.photoURL!,
 			text: messageRef.current.value,
-			messageId: crypto.randomUUID(),
+			messageId: time,
+		}).then(() => {
+			setIsLoading(false);
 		});
 
-		setIsLoading(false);
 		messageRef.current.value = "";
 	}
 
@@ -69,7 +75,7 @@ export default function Chat({ caseId }: LiveChatProps) {
 									"chat__bubble " +
 									(currentUser && currentUser.uid === bubble.userId ? "this-user" : "")
 								}
-								key={bubble.userId}
+								key={bubble.messageId}
 							>
 								<div className="chat__bubble-user">
 									<img src={bubble.photoURL} alt="user" className="chat__bubble-photo" />

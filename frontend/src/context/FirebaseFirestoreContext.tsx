@@ -5,15 +5,14 @@ import { collection, doc, onSnapshot, query, setDoc } from "firebase/firestore";
 interface IGetLiveChat {
 	caseId: string;
 }
-interface ICreateChatMessage extends IGetLiveChat, IChatData {
-	messageId: string;
-}
+interface ICreateChatMessage extends IGetLiveChat, IChatData {}
 
 export interface IChatData {
 	userId: string;
 	name: string;
 	photoURL: string;
 	text: string;
+	messageId: number;
 }
 
 interface FirebaseFirestoreContextProps {
@@ -29,11 +28,14 @@ export function useFirestore(): FirebaseFirestoreContextProps {
 
 export function FirebaseFirestoreProvider({ children }: { children: ReactNode }) {
 	function createChatMessage({ caseId, userId, photoURL, text, name, messageId }: ICreateChatMessage) {
-		return setDoc(doc(collection(firebaseFirestore, `live/${caseId}/chat`), messageId), {
+		const chatCollection = collection(firebaseFirestore, `live/${caseId}/chat`);
+
+		return setDoc(doc(chatCollection, messageId.toString()), {
 			userId: userId,
 			name: name,
 			photoURL: photoURL,
 			text: text,
+			messageId: messageId,
 		} as IChatData);
 	}
 	async function getLiveChat({ caseId }: IGetLiveChat) {
