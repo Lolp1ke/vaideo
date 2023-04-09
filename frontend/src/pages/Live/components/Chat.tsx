@@ -14,7 +14,9 @@ export default function Chat({ caseId }: LiveChatProps) {
 				<p className="chat__session-id">Session {caseId}</p>
 				<div className="chat__chat">
 					{getLiveChat({ caseId: caseId }).map(() => {
-						return <></>;
+						return <>
+							
+						</>;
 					})}
 				</div>
 			</div>

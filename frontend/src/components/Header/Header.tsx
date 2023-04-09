@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 
 import "./styles/header.scss";
 import Auth from "../Auth/Auth";
@@ -21,9 +22,9 @@ export default function Header() {
 					<a href={"#about"} className="header__navbar-item">
 						About
 					</a>
-					<a href={"#live"} className="header__navbar-item">
+					<Link to="/live/:caseId" className="header__navbar-item">
 						Live
-					</a>
+					</Link>
 					<a href={"#contact"} className="header__navbar-item">
 						Contact
 					</a>

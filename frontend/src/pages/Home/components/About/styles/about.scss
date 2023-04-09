@@ -1,35 +1,5 @@
 @import "./src/assets/styles/mixins";
 
-//.about {
-//	&__container {
-//		position: relative;
-//		@include flex(row, normal, normal, 20px);
-//	}
-//
-//	&__content {
-//		@include flex(column, space-between, normal, 20px);
-//
-//		@media (max-width: 1300px) {
-//			flex-direction: column;
-//			align-items: center;
-//		}
-//	}
-//
-//	&__info {
-//		@include flex(column, normal, flex-start, 5px);
-//	}
-//
-//	&__text {
-//		font-weight: 700;
-//		color: var(--main-color);
-//		font-size: 18px;
-//	}
-//
-//	&__left {
-//		width: 40%;
-//	}
-// }
-
 .about {
 	// .about__container
 	&__container {
@@ -38,19 +8,6 @@
 			flex-direction: column;
 			justify-content: center;
 		}
-	}
-
-	// .about__info
-	&__info {
-		align-self: flex-start;
-	}
-
-	// .about__desc
-	&__desc {
-	}
-
-	// .about__title
-	&__title {
 	}
 
 	// .about__content
@@ -62,20 +19,8 @@
 		}
 	}
 
-	// .about__article
-	&__article {
-	}
-
 	// .about__text
 	&__text {
 		max-width: 400px;
-	}
-
-	// .about__logo
-	&__logo {
-	}
-
-	// .about__illustration
-	&__illustration {
 	}
 }
