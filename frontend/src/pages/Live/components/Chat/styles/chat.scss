@@ -1,0 +1,91 @@
+@import "./src/assets/styles/mixins";
+
+.chat {
+	// .chat__container
+	&__container {
+		width: 350px;
+		@include flex(column, normal, center, 10px);
+		background-color: #f4f4f4;
+	}
+
+	// .chat__session-id
+	&__session-id {
+		background-color: #ffffff;
+		width: 100%;
+		text-align: center;
+		padding: 10px 0;
+	}
+
+	// .chat__chat
+	&__chat {
+		height: 300px;
+		width: 100%;
+		padding: 20px;
+		overflow: auto;
+		@include flex(column, normal, normal, 20px);
+	}
+
+	&__bubble {
+		@include flex(row-reverse, normal, center, 10px);
+		width: 100%;
+
+		&.this-user {
+			@include flex(row, normal, center, 10px);
+		}
+	}
+	// .chat__bubble-user
+	&__bubble-user {
+		@include flex(column, normal, center, 5px);
+	}
+
+	// .chat__bubble-photo
+	&__bubble-photo {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+	}
+
+	// .chat__bubble-name
+	&__bubble-name {
+		font-size: 12px;
+		max-width: 48px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	// .chat__bubble-text
+	&__bubble-text {
+		width: 70%;
+		background-color: #ffffff;
+		padding: 10px 20px;
+		border-radius: 10px;
+	}
+
+	// .chat__input
+	&__input {
+		position: relative;
+		@include flex(row, normal, center, 0);
+		width: 100%;
+	}
+
+	// .chat__input-field
+	&__input-field {
+		@include reset();
+		padding: 5px 40px 5px 20px;
+		background-color: #ffffff;
+		width: 100%;
+		height: auto;
+	}
+
+	// .chat__button
+	&__button {
+		position: absolute;
+		right: 5px;
+		@include reset();
+		@include flex(row, center, center, 0);
+
+		&:disabled {
+			cursor: not-allowed;
+		}
+	}
+}
