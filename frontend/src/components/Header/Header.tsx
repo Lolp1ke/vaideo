@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import "./styles/header.scss";
 import Auth from "../Auth/Auth";
@@ -14,7 +14,7 @@ export default function Header() {
 	return (
 		<header className="header">
 			<div className="header__container">
-				<a href={"#top"} className="header__logo">
+				<a href={"/"} className="header__logo">
 					<img src="/assets/logos/logo.png" alt="logo" className="header__logo-image" draggable={false} />
 					<h1 className="header__logo-text">Traifix</h1>
 				</a>

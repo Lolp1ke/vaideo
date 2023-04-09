@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 
@@ -8,11 +8,13 @@ import "swiper/css/navigation";
 import Slider from "../Slider/Slider";
 
 import "./styles/session.scss";
+import Chat from "../Chat/Chat";
+import { useParams } from "react-router-dom";
+import { urlParams } from "../../../../App";
 
 interface partnersProps {
 	image: string;
 }
-
 
 const partners: partnersProps[] = [
 	{
@@ -25,7 +27,6 @@ const partners: partnersProps[] = [
 		image: "kolesaGroup.png",
 	},
 ];
-
 
 // const collision = [
 //     {
@@ -54,44 +55,45 @@ const partners: partnersProps[] = [
 // 	},
 // ]
 
-
-
 export default function Session() {
-        const [timeLeft, setTimeLeft] = useState(10 * 60); // 10 minutes in seconds
-      
-        useEffect(() => {
-          const intervalId = setInterval(() => {
-            setTimeLeft(timeLeft => timeLeft - 1);
-          }, 1000);
-      
-          // Clear interval on component unmount
-          return () => clearInterval(intervalId);
-        }, []);
-      
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
+	const [timeLeft, setTimeLeft] = useState(10 * 60); // 10 minutes in seconds
 
+	const urlCaseId = useParams<urlParams>().caseId!;
+
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			setTimeLeft((timeLeft) => timeLeft - 1);
+		}, 1000);
+
+		// Clear interval on component unmount
+		return () => clearInterval(intervalId);
+	}, []);
+
+	const minutes = Math.floor(timeLeft / 60);
+	const seconds = timeLeft % 60;
 
 	return (
 		<section className="session" id={"session"}>
 			<div className="session__container">
 				<div className="session__data">
-                    <div className="session__data__left">
-                        <img src="/assets/icons/live.svg" alt="live"/>
-                        <span className="session__text">Live session</span>
-                    </div>
+					<div className="session__data__left">
+						<img src="/assets/icons/live.svg" alt="live" />
+						<span className="session__text">Live session</span>
+					</div>
 
-                    <div className="session__data__right">
-                        <span className="session__text">Time left: {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</span>
-                    </div>
-                </div>
+					<div className="session__data__right">
+						<span className="session__text">
+							Time left: {minutes.toString().padStart(2, "0")}:{seconds.toString().padStart(2, "0")}
+						</span>
+					</div>
+				</div>
 
-                <div className="session_live">
-                    <img src="/assets/images/accident.svg" alt="accident" />
-                </div>
+				<div className="session__live">
+					<img src="/assets/images/accident.svg" alt="accident" />
+					<Chat caseId={urlCaseId} />
+				</div>
 
-
-                <div className="session__content">
+				<div className="session__content">
 					<Swiper
 						className="session__slider"
 						slidesPerView={1}
@@ -103,14 +105,12 @@ export default function Session() {
 						{partners.map((e, key) => {
 							return (
 								<SwiperSlide key={key}>
-									<Slider
-                                    image={e.image}>
-                                    </Slider>
+									<Slider image={e.image}></Slider>
 								</SwiperSlide>
 							);
 						})}
 
-                        <img
+						<img
 							src="/assets/icons/arrow-left.svg"
 							alt="prev"
 							className="session__slider-prev session__pagination"
@@ -120,10 +120,9 @@ export default function Session() {
 							alt="next"
 							className="session__slider-next session__pagination"
 						/>
-                </Swiper>
+					</Swiper>
+				</div>
 			</div>
-        </div>
 		</section>
 	);
-    }
-
+}
